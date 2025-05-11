@@ -77,8 +77,6 @@ services:
       SETTING_EMAIL_USE_SSL: 'False'
       SETTING_EMAIL_USE_TLS: 'True'
       ZULIP_AUTH_BACKENDS: EmailAuthBackend
-      DISABLE_HTTPS: "True"
-      LOADBALANCER_IPS: "172.16.0.0/12,192.168.0.0/16" 
     volumes:
       - 'zulip:/data:rw'
     ulimits:
