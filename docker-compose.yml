@@ -52,9 +52,9 @@ services:
       args:
         ZULIP_GIT_URL: 'https://github.com/zulip/zulip.git'
         ZULIP_GIT_REF: '10.2'
-    ports:
-      - '80:80'
-      - '443:443'
+    # ports:
+    #   - '80:80'
+    #   - '443:443'
     environment:
       DB_HOST: database
       DB_HOST_PORT: '5432'
@@ -77,6 +77,8 @@ services:
       SETTING_EMAIL_USE_SSL: 'False'
       SETTING_EMAIL_USE_TLS: 'True'
       ZULIP_AUTH_BACKENDS: EmailAuthBackend
+      DISABLE_HTTPS: "True"
+      LOADBALANCER_IPS: "172.16.0.0/12,192.168.0.0/16" 
     volumes:
       - 'zulip:/data:rw'
     ulimits:
